@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>主标题</h1>
+    <h2>顶层标题</h2>
+    <h3>子标题</h3>
+    <h4>次子标题</h4>
+    
+
+    <ul>
+        <li>知否知否，应是绿肥红瘦1</li>
+        <li>知否知否，应是绿肥红瘦2</li>
+        <li>知否知否，应是绿肥红瘦3</li>
+        <li>知否知否，应是绿肥红瘦4</li>
+    </ul>
+
+    <ol id='ol' type="A" start="3">
+        <li>知否知否，应是绿肥红瘦1</li>
+        <li>知否知否，应是绿肥红瘦2</li>
+        <li>知否知否，应是绿肥红瘦3</li>
+        <li>知否知否，应是绿肥红瘦4</li>
+    </ol>
+
+    <button id='addBut'>添加</button><br>
+    <button id='choose'>开始随机</button><br>
+
+    <i>xxxxx</i>
+
+    <script>
+        var ols = document.getElementById('ol');
+        var lis = ols.getElementsByTagName('li');
+        console.log(lis);
+
+        var addBut = document.getElementById('addBut');
+        var choose = document.getElementById('choose');
+        var foodArr = new Array();
+        foodArr.push('火锅');
+        foodArr.push('烤肉');
+        foodArr.push('日料');
+        addBut.onclick = function () {
+            var food = prompt('请输入要补充的：');
+            foodArr.push(food);
+        }
+
+        choose.onclick = function () {
+            var random = getRandomIntInclusive(0, foodArr.length-1);
+            console.log(random);
+            alert(foodArr[random]);
+        }
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+        }
+
+    </script>
+
+</body>
+
+</html>
